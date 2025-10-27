@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAR GHAR SIKSHA - Educational Gaming Platform</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Page -->
+        <div id="welcome-page" class="page active">
+            <div class="container">
+                <div class="welcome-content">
+                    <div class="logo-section">
+                        <i class="fas fa-graduation-cap main-icon"></i>
+                        <h1 class="main-title">HAR GHAR SIKSHA</h1>
+                        <p class="tagline">शिक्षा हर घर, खुशी हर पल</p>
+                        <p class="subtitle">Learning Games for Every Home</p>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-gamepad"></i>
+                            <h3>Interactive Games</h3>
+                            <p>Learn through engaging educational games</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-language"></i>
+                            <h3>Multiple Languages</h3>
+                            <p>Study in your preferred language</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Rewards & Badges</h3>
+                            <p>Earn achievements as you learn</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h3>For Everyone</h3>
+                            <p>Students and teachers welcome</p>
+                        </div>
+                    </div>
+                    
+                    <button class="cta-button" onclick="goToPage('user-type-page')">
+                        <span>Start Learning</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="developer-credit">
+                        <p>Developed by <strong>Shivanshu Satyajeet</strong></p>
+                        <p class="dev-role">Lead Developer & Educational Game Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Type Selection Page -->
+        <div id="user-type-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Choose Your Role</h2>
+                    <p>Are you a student or a teacher?</p>
+                </div>
+                
+                <div class="user-type-cards">
+                    <div class="user-card" onclick="selectUserType('student')">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Student</h3>
+                        <p>I want to learn and play educational games</p>
+                    </div>
+                    
+                    <div class="user-card" onclick="selectUserType('teacher')">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Teacher</h3>
+                        <p>I want to manage students and track progress</p>
+                    </div>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('welcome-page')">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page">
+            <div class="container">
+                <div class="login-form-container">
+                    <div class="login-header">
+                        <i class="fas fa-lock"></i>
+                        <h2>Login to HAR GHAR SIKSHA</h2>
+                        <p id="user-type-display">Student Login</p>
+                    </div>
+                    
+                    <form class="login-form" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="username">Gmail Address</label>
+                            <input type="email" id="username" name="username" placeholder="your.email@gmail.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password (8+ characters)</label>
+                            <input type="password" id="password" name="password" placeholder="Minimum 8 characters" required>
+                        </div>
+                        
+                        <button type="submit" class="login-button">
+                            <span>Login</span>
+                            <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="login-options">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                        <a href="#" class="create-account">Create New Account</a>
+                    </div>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('user-type-page')">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- Language Selection Page -->
+        <div id="language-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Choose Your Language</h2>
+                    <p>अपनी भाषा चुनें / Select your preferred language</p>
+                </div>
+                
+                <div class="language-grid">
+                    <div class="language-card" onclick="selectLanguage('hindi')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Hindi</h3>
+                        <p>हिंदी</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('english')">
+                        <span class="flag">🇬🇧</span>
+                        <h3>English</h3>
+                        <p>English</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('bengali')">
+                        <span class="flag">🇧🇩</span>
+                        <h3>Bengali</h3>
+                        <p>বাংলা</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('tamil')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Tamil</h3>
+                        <p>தமிழ்</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('telugu')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Telugu</h3>
+                        <p>తెలుగు</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('marathi')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Marathi</h3>
+                        <p>मराठी</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('gujarati')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Gujarati</h3>
+                        <p>ગુજરાતી</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('punjabi')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Punjabi</h3>
+                        <p>ਪੰਜਾਬੀ</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('kannada')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Kannada</h3>
+                        <p>ಕನ್ನಡ</p>
+                    </div>
+                    
+                    <div class="language-card" onclick="selectLanguage('malayalam')">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Malayalam</h3>
+                        <p>മലയാളം</p>
+                    </div>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('login-page')">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- Class Selection Page -->
+        <div id="class-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Select Your Class</h2>
+                    <p>Choose your current grade level</p>
+                </div>
+                
+                <div class="class-grid">
+                    <div class="class-card" onclick="selectClass(6)">
+                        <i class="fas fa-book"></i>
+                        <h3>Class 6</h3>
+                        <p>Grade 6 • Age 11-12</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(7)">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Class 7</h3>
+                        <p>Grade 7 • Age 12-13</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(8)">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Class 8</h3>
+                        <p>Grade 8 • Age 13-14</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(9)">
+                        <i class="fas fa-university"></i>
+                        <h3>Class 9</h3>
+                        <p>Grade 9 • Age 14-15</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(10)">
+                        <i class="fas fa-award"></i>
+                        <h3>Class 10</h3>
+                        <p>Grade 10 • Age 15-16</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(11)">
+                        <i class="fas fa-medal"></i>
+                        <h3>Class 11</h3>
+                        <p>Grade 11 • Age 16-17</p>
+                    </div>
+                    
+                    <div class="class-card" onclick="selectClass(12)">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Class 12</h3>
+                        <p>Grade 12 • Age 17-18</p>
+                    </div>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('language-page')">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- Games Dashboard -->
+        <div id="games-dashboard" class="page">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div class="user-info">
+                        <h2>Welcome, <span id="username-display">Student</span>!</h2>
+                        <p>Class <span id="class-display">6</span> • <span id="language-display">English</span></p>
+                    </div>
+                    <button class="logout-button" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                
+                <div class="games-grid">
+                    <div class="game-card featured" onclick="playGame('eduludo')">
+                        <div class="game-icon">🎲</div>
+                        <h3>EduLudo</h3>
+                        <p>Learning Through Play</p>
+                        <div class="game-subjects">
+                            <span>Math</span>
+                            <span>Science</span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" onclick="playGame('dress-game')">
+                        <div class="game-icon">👗</div>
+                        <h3>Dress to Impress</h3>
+                        <p>Idol Quiz Runway</p>
+                        <div class="game-subjects">
+                            <span>Fashion</span>
+                            <span>Quiz</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" onclick="playGame('pizza-fraction')">
+                        <div class="game-icon">🍕</div>
+                        <h3>Pizza Fraction</h3>
+                        <p>Challenge</p>
+                        <div class="game-subjects">
+                            <span>Math</span>
+                            <span>Fractions</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" onclick="playGame('story-chain')">
+                        <div class="game-icon">📚</div>
+                        <h3>Story Chain</h3>
+                        <p>Challenge</p>
+                        <div class="game-subjects">
+                            <span>English</span>
+                            <span>Creative</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" onclick="playGame('solve-survive')">
+                        <div class="game-icon">🎯</div>
+                        <h3>Solve & Survive</h3>
+                        <p>Educational Shooter</p>
+                        <div class="game-subjects">
+                            <span>All Subjects</span>
+                            <span>Action</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" onclick="playGame('anatomy-game')">
+                        <div class="game-icon">🧬</div>
+                        <h3>Body Builder</h3>
+                        <p>Anatomy Unmixed</p>
+                        <div class="game-subjects">
+                            <span>Biology</span>
+                            <span>Science</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card special" onclick="openNCERTBooks()">
+                        <div class="game-icon">📚</div>
+                        <h3>NCERT Books</h3>
+                        <p>Read Digital Textbooks</p>
+                        <div class="game-subjects">
+                            <span>All Subjects</span>
+                            <span>Class 6-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('class-page')">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- NCERT Books Page -->
+        <div id="ncert-books-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>📚 NCERT Digital Library</h2>
+                    <p>Access all NCERT textbooks for Class <span id="ncert-class-display">6</span></p>
+                    <div class="info-banner">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Updated!</strong> NCERT books now have multiple reliable sources with automatic fallback. If one source doesn't work, the system will try backup sources automatically. Use "Teachoo" button for guaranteed access!</p>
+                    </div>
+                </div>
+                
+                <div class="class-selector">
+                    <h3>Select Class:</h3>
+                    <div class="class-tabs">
+                        <button class="class-tab" onclick="switchNCERTClass(6)">Class 6</button>
+                        <button class="class-tab" onclick="switchNCERTClass(7)">Class 7</button>
+                        <button class="class-tab" onclick="switchNCERTClass(8)">Class 8</button>
+                        <button class="class-tab" onclick="switchNCERTClass(9)">Class 9</button>
+                        <button class="class-tab" onclick="switchNCERTClass(10)">Class 10</button>
+                        <button class="class-tab" onclick="switchNCERTClass(11)">Class 11</button>
+                        <button class="class-tab" onclick="switchNCERTClass(12)">Class 12</button>
+                    </div>
+                </div>
+                
+                <div class="subjects-grid" id="ncert-subjects-grid">
+                    <!-- Books will be populated by JavaScript -->
+                </div>
+                
+                <button class="back-button" onclick="goToPage('games-dashboard')">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </button>
+            </div>
+        </div>
+
+        <!-- NCERT Book Reader Page -->
+        <div id="ncert-reader-page" class="page">
+            <div class="container">
+                <div class="reader-header">
+                    <div class="book-info">
+                        <h2 id="current-book-title">NCERT Textbook</h2>
+                        <p id="current-book-details">Class • Subject</p>
+                    </div>
+                    <div class="reader-controls">
+                        <button class="control-btn" onclick="toggleFullscreen()">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button class="control-btn" onclick="downloadBook()">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="control-btn" onclick="closeReader()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="reader-container">
+                    <iframe id="book-viewer" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+                <button class="back-button" onclick="goToPage('ncert-books-page')">
+                    <i class="fas fa-arrow-left"></i> Back to Books
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/eduludo.js"></script>
+    <script src="js/pizza-fraction.js"></script>
+    <script src="js/story-chain.js"></script>
+    <script src="js/dress-to-impress.js"></script>
+    <script src="js/solve-survive.js"></script>
+    <script src="js/anatomy-game.js"></script>
+</body>
+</html>
