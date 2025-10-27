@@ -184,11 +184,11 @@ This project is created for educational purposes and aims to make quality educat
 ## Contact
 
 For questions, suggestions, or support:
-- **Email**: support@hargharsiksha.edu
-- **Website**: www.hargharsiksha.com
-
+- **Email**: satyajeetshivanshu@gmail.com
+- **Website**: not available
 ---
 
 **"Education for Every Home, Joy in Every Moment"** 
+
 
 Making learning fun, accessible, and meaningful for every Indian student! 🇮🇳📚🎮
